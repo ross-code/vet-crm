@@ -2,8 +2,9 @@ services:
   - type: web
     name: veterinary-crm
     env: python
+    runtime: python-3.11.9
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "python app.py"
+    startCommand: "gunicorn app:app"
     plan: free
     envVars:
       - key: FLASK_ENV
